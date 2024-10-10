@@ -54,7 +54,37 @@ VALUES ('Spongebob', 'Squarepants', 3), ('Squidward', 'Tentacles', 2),
 SELECT * FROM employees;
 
 
------------------(Stuff we need to talk about before update/delete)
+--the WHERE clause----------------------------------------
+
+--In a SELECT, the WHERE clause helps us filter results
+
+--SELECT all roles where the salary is equals to 100,000 (=)
+SELECT * FROM roles WHERE role_salary = 100000;
+
+--SELECT all roles where the salary is less than 100,000 (<)
+SELECT * FROM roles WHERE role_salary < 100000;
+--This is a SUBQUERY - "Select all roles where the salary is less than the manager's salary)
+SELECT * FROM roles WHERE role_salary < (SELECT role_salary FROM roles WHERE role_title = 'Manager')
+
+--all roles with a salary between 40,000 and 90,000 (BETWEEN & AND)
+SELECT * FROM roles WHERE role_salary BETWEEN 40000 AND 90000 
+
+--all employees with names starting with 'S' (LIKE & %)
+SELECT * FROM employees WHERE first_name LIKE 'S%'
+
+--The % can be used anywhere to denote values that don't matter
+--all employees with an 'e' in their first name
+SELECT * FROM employees WHERE first_name LIKE '%e%'
+
+--Employees named Eugene or Sheldon (OR)
+SELECT * FROM employees WHERE first_name = 'Eugene' OR first_name = 'Sheldon'
+
+--Same thing as above, but using the IN operator instead (which could be shorter, depending on # of checks)
+--In checks for records with columns that have a match IN the values in parenthesis
+SELECT * FROM employee WHERE first_name IN ('Eugene', 'Sheldon')
+
+
+
 
 
 --We can use UPDATE to update records - let's say cashiers got a raise
