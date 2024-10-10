@@ -84,7 +84,23 @@ SELECT * FROM employees WHERE first_name = 'Eugene' OR first_name = 'Sheldon'
 SELECT * FROM employee WHERE first_name IN ('Eugene', 'Sheldon')
 
 
+--ORDER BY---------------------------------
 
+--Lets us order things in ascending or descending order (ascending by default)
+SELECT * FROM roles ORDER BY role_salary --numeric
+SELECT * FROM employees ORDER BY first_name --alphabet
+
+--we can say "desc" for descending order
+SELECT * FROM roles ORDER BY role_salary desc
+
+--FUNCTIONS-------------------------------
+
+--Scalar functions can take in up to one value, and they return one value
+SELECT now(); --returns the current date/time
+SELECT upper('this text will be returned all uppercase')
+
+--Aggregate functions can take in multiple values and return one value 
+SELECT avg(role_salary) FROM roles
 
 
 --We can use UPDATE to update records - let's say cashiers got a raise
@@ -96,9 +112,6 @@ SELECT * FROM roles; --NOTE: we could just run the previous select from above
 DELETE FROM employees WHERE first_name = 'Squidward';
 
 SELECT * FROM employees;
-
-
-
 
 
 
