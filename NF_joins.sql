@@ -94,6 +94,37 @@ values('PB crackers', 100, 'sweet/savory', 1),
 SELECT * FROM snacks;
 
 
---Joins here-------------------------------
+--JOINS-----------------------------------
+
+--INNER JOIN---/
+
+--return all records with matching data (typically PK/FK) in both tables
+--"if the two tables have records with PK/FK matches, include them in the ResultSet"
+SELECT * FROM snacks INNER JOIN brands ON brand_id_fk = brand_id;
+--Notice: We don't get the "Girl Dinner" snack or the "Nestle" brand, because there are no PK/FK matches
+
+
+--FULL OUTER JOIN---/
+
+--return everything.
+SELECT * FROM snacks FULL OUTER JOIN brands ON brand_id_fk = brand_id;
+
+
+--LEFT JOIN---/
+
+--returns everything from the left table and matchings records on the right table
+SELECT * FROM snacks LEFT JOIN brands ON brand_id_fk = brand_id;
+--Notice: no Nestle, it doesn't match anything on the left table
+
+
+--RIGHT JOIN---/
+
+--returns everything from the right table and matching records on the left table
+SELECT * FROM snacks RIGHT JOIN brands ON brand_id_fk = brand_id;
+--Notice: no Girl Dinner, it doesn't match anything on the right table
+
+
+--RIGHT VS LEFT?? This is determined by the position of the table name around the JOIN syntax
+--LEFT_TABLE [JOIN] RIGHT_TABLE
 
 
